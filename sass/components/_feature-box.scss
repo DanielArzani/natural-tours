@@ -11,6 +11,10 @@
     transform: translateY(-1.5rem) scale(1.03);
   }
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   &__icon {
     display: inline-block;
 
@@ -24,5 +28,9 @@
     color: transparent;
     font-size: 6rem;
     margin-bottom: 0.5rem;
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
   }
 }
