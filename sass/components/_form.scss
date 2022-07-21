@@ -1,0 +1,103 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    display: block;
+
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent; // this is to stop the bottom element from moving due to the extra 3px being added
+    border-radius: 2px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    transition: all 0.3s;
+    width: 90%;
+
+    &::placeholder {
+      color: $color-grey-dark-2;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 3px solid $color-primary;
+      box-shadow: 01 rem 2rem rgba($color-black, 0.1);
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+  }
+
+  &__label {
+    display: block;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0.7rem 0 0 2rem;
+    transition: all 0.3s;
+  }
+
+  // this is for that nice animation between the label and the placeholder
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  // radio buttons
+  &__radio-group {
+    display: inline-block;
+
+    width: 49%;
+  }
+
+  &__radio-label {
+    position: relative;
+
+    cursor: pointer;
+    font-size: $default-font-size;
+    padding-left: 4.5rem;
+  }
+
+  // for hiding the original radio buttons
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-button {
+    display: inline-block;
+    position: absolute;
+    top: -0.4rem;
+    left: 0;
+
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+
+    &::after {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: $color-primary;
+      border-radius: 50%;
+      content: '';
+      height: 1.3rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+      width: 1.3rem;
+    }
+  }
+
+  // for syncing the custom inputs with the actual radio inputs checked status
+  &__radio-input:checked ~ &__radio-label &__radio-button:after {
+    opacity: 1;
+  }
+}
