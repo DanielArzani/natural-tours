@@ -185,7 +185,6 @@
   }
 
   // this media query is large because its basically a re-write of this component thus all of it is going at the end
-  //@include respond(tab-port) {
   @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
